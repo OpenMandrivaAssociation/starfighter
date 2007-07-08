@@ -1,7 +1,7 @@
 %define	name	starfighter
 %define	oname	Starfighter
 %define	version	1.1
-%define release	5
+%define release	6
 %define	Summary	Project: Starfighter
 
 Name:		%{name}
@@ -50,25 +50,14 @@ Boss battles
 %patch0 -p1 -b .orig
 
 %build
-%make DATADIR="%{_gamesdatadir}/%{name}/" OPTFLAGS="$RPM_OPT_FLAGS -O3"
+%make DATADIR="%{_gamesdatadir}/%{name}/" OPTFLAGS="%{optflags} -O3"
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
-%{makeinstall_std} DATADIR="$RPM_BUILD_ROOT%{_gamesdatadir}/%{name}/" BINDIR="$RPM_BUILD_ROOT%{_gamesbindir}/"
+rm -rf %{buildroot}
+%{makeinstall_std} DATADIR="%{buildroot}%{_gamesdatadir}/%{name}/" BINDIR="%{buildroot}%{_gamesbindir}/"
 
-%{__install} -d $RPM_BUILD_ROOT%{_menudir}
-%{__cat} <<EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{name}" \
-		icon=%{name}.png \
-		needs="x11" \
-		section="More Applications/Games/Arcade" \
-		title="%{Summary}"\
-		longtitle="%{Summary}" \
-		xdg="true"
-EOF
-
-install -d $RPM_BUILD_ROOT%{_datadir}/applications
-cat <<EOF > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop
+install -d %{buildroot}%{_datadir}/applications
+cat <<EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Encoding=UTF-8
 Name=%{Summary}
@@ -81,9 +70,9 @@ StartupNotify=true
 Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
 EOF
 
-%{__install} -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
-%{__install} -m644 %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-%{__install} -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
+install -m644 %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
+install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 %post
 %update_menus
@@ -92,16 +81,15 @@ EOF
 %clean_menus
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(644,root,root,755)
 %doc docs/*
 %{_gamesdatadir}/%{name}
+%{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %defattr(755,root,root,755)
 %{_gamesbindir}/*
