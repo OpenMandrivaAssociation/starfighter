@@ -17,7 +17,6 @@ License:	GPL
 Group:		Games/Arcade
 Summary:	%{Summary}
 BuildRequires:	SDL-devel SDL_mixer-devel SDL_image-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 %{oname} is a is a Space/Arcade game which uses the SDL
