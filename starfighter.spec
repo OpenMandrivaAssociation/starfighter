@@ -1,7 +1,7 @@
 %define	name	starfighter
 %define	oname	Starfighter
 %define	version	1.1
-%define release	6
+%define release	7
 %define	Summary	Project: Starfighter
 
 Name:		%{name}
