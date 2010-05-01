@@ -12,7 +12,7 @@ Source0:	%{name}-%{version}-1.tar.bz2
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
 Source13:	%{name}-48x48.png
-Patch0:		%{name}-1.1-mdkconf.patch.bz2
+Patch0:		%{name}-1.1-mdkconf.patch
 License:	GPL
 Group:		Games/Arcade
 Summary:	%{Summary}
@@ -50,6 +50,7 @@ Boss battles
 %patch0 -p1 -b .orig
 
 %build
+%define Werror_cflags %nil
 %make DATADIR="%{_gamesdatadir}/%{name}/" OPTFLAGS="%{optflags} -O3"
 
 %install
