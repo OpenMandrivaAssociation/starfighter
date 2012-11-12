@@ -1,0 +1,64 @@
+diff -urN starfighter-1.2/code/messages.cpp starfighter-1.2-patched/code/messages.cpp
+--- starfighter-1.2/code/messages.cpp	2011-12-27 09:15:43.000000000 +1100
++++ starfighter-1.2-patched/code/messages.cpp	2012-04-08 20:06:53.848148915 +1100
+@@ -117,7 +117,7 @@
+ 		case 3:
+ 		case 4:
+ 		case 5:
+-			sprintf(in, killMessage[rand() % 6]);
++			sprintf(in, "%s", killMessage[rand() % 6]);
+ 			break;
+ 
+ 		case 6:
+@@ -139,11 +139,11 @@
+ 		case 9:
+ 			if (firstPlace)
+ 			{
+-				sprintf(in, killMessage[9]);
++				sprintf(in, "%s", killMessage[9]);
+ 			}
+ 			else
+ 			{
+-				sprintf(in, killMessage[rand() % 6]);
++				sprintf(in, "%s", killMessage[rand() % 6]);
+ 			}
+ 			break;
+ 	}
+@@ -192,7 +192,7 @@
+ 		}
+ 	}
+ 
+-	sprintf(in, deathMessage[rand() % 6]);
++	sprintf(in, "%s", deathMessage[rand() % 6]);
+ 	setRadioMessage(faceToUse, in, 1);
+ }
+ 
+@@ -212,7 +212,7 @@
+ 		faceToUse = FACE_URSULA;
+ 	}
+ 
+-	sprintf(in, missFireMessage[rand() % 5]);
++	sprintf(in, "%s", missFireMessage[rand() % 5]);
+ 	setRadioMessage(faceToUse, in, 0);
+ }
+ 
+@@ -232,6 +232,6 @@
+ 		faceToUse = FACE_URSULA;
+ 	}
+ 
+-	sprintf(in, playerHitMessage[rand() % 3]);
++	sprintf(in, "%s", playerHitMessage[rand() % 3]);
+ 	setRadioMessage(faceToUse, in, 0);
+ }
+diff -urN starfighter-1.2/code/missions.cpp starfighter-1.2-patched/code/missions.cpp
+--- starfighter-1.2/code/missions.cpp	2011-12-27 09:15:43.000000000 +1100
++++ starfighter-1.2-patched/code/missions.cpp	2012-04-08 20:08:23.473091068 +1100
+@@ -846,7 +846,7 @@
+ 			{
+ 				if (currentMission.secondaryType[i] != NONE)
+ 				{
+-					sprintf(temp, currentMission.secondaryObjective[i]);
++					sprintf(temp, "%s", currentMission.secondaryObjective[i]);
+ 					if (currentMission.completed2[i] >= 1)
+ 					{
+ 						drawString("COMPLETED", 550, 274 + (i * 30), FONT_GREEN);
