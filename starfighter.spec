@@ -78,3 +78,76 @@ EOF
 %{_liconsdir}/%{name}.png
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_gamesbindir}/*
+
+
+%changelog
+* Sun Apr 08 2012 Andrey Bondrov <abondrov@mandriva.org> 1.2-1
++ Revision: 789853
+- New version 1.2, spec cleanup
+
+* Wed Dec 08 2010 Oden Eriksson <oeriksson@mandriva.com> 1.1-8mdv2011.0
++ Revision: 614976
+- the mass rebuild of 2010.1 packages
+
+* Sat May 01 2010 Funda Wang <fwang@mandriva.org> 1.1-7mdv2010.1
++ Revision: 541405
+- fix build with format check
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Thu Jun 12 2008 Pixel <pixel@mandriva.com> 1.1-6mdv2009.0
++ Revision: 218426
+- rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+    - kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+* Mon Jul 09 2007 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.1-6mdv2008.0
++ Revision: 50360
+- drop debian menu
+  rebuild
+- Import starfighter
+
+
+
+* Thu Aug 17 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 1.1-5mdv2007.0
+- xdg menu
+- fix group
+
+* Fri Dec 23 2005 Per Øyvind Karlsen <pkarlsen@mandriva.com> 1.1-4mdk
+- rebuild
+- %%mkrel
+
+* Fri Aug 27 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.1-3mdk
+- rebuild for new menu
+- don't bzip2 icons in src.rpm
+- fix buildrequires (lib64..)
+
+* Tue Jun  8 2004 Götz Waschk <waschk@linux-mandrake.com> 1.1-2mdk
+- rebuild for new g++
+
+* Mon Sep 01 2003 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.1-1mdk
+- 1.1
+- license is now GPL
+- regenerated P0
+
+* Sun Aug 03 2003 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.00-5mdk
+- changed description (thx, Adam Williamson & Charles A. Edwards)
+
+* Sat Aug 02 2003 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.00-4mdk
+- corrected url
+
+* Mon Jun 02 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 1.00-3mdk
+- change summary to macro to avoid the use of the -debug package's summary
+  in menu item
+
+* Wed May 28 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 1.00-2mdk
+- fix summary and name, it's Project: Starfighter not only Starfighter
+
+* Wed May 21 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 1.00-1mdk
+- initial mdk release
