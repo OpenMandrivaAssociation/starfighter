@@ -3,7 +3,7 @@
 Summary:	Project: Starfighter
 Name:		starfighter
 Version:	1.2
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Games/Arcade
 Url:		http://www.parallelrealities.co.uk/starfighter.php
