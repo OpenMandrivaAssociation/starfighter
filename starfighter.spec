@@ -6,7 +6,7 @@ Version:	1.2
 Release:	3
 License:	GPLv2+
 Group:		Games/Arcade
-Url:		http://www.parallelrealities.co.uk/starfighter.php
+Url:		https://www.parallelrealities.co.uk/starfighter.php
 Source0:	%{name}-%{version}.tar.gz
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
